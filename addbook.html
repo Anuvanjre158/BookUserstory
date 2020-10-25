@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Add BookD</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+     body{
+          margin:0;
+          padding:0;
+          background:url("https://s-i.huffpost.com/gen/3189570/images/o-LAW-facebook.jpg");
+          background-size: cover;
+          font-family: sans-serif;
+           }
+table.TableAddDelete{
+	width: 100%;
+    background:yellow;
+	border-collapse: collapse;
+	margin-top:20px;
+}
+table.TableAddDelete th, table.TableAddDelete td{
+	border: 2px solid black;
+    background:yellow;
+	padding: 7px;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$('.btnrowAddDelete').click(function(){
+  		var txtBookAddDelete = $('.txtBookAddDelete').val();
+  		var txtNameAddDelete = $('.txtNameAddDelete').val();
+  		var txtAuthorAddDelete = $('.txtAuthorAddDelete').val();
+        var txtPriceAddDelete = $('.txtPriceAddDelete').val();
+  		$('.TableAddDelete tbody').append("<tr><td>"+txtBookAddDelete+"</td><td>"+txtNameAddDelete+"</td><td>"+txtAuthorAddDelete+"</td><td>"+txtPriceAddDelete+"+</td><td><button type='button' class='btndeleterowadded btn'>x</button></td></tr>");
+         
+    });
+  	$(document).on('click', 'button.btndeleterowadded', function(){
+     	$(this).closest('tr').remove();
+     	return false;
+ 	});
+});
+</script>
+</head>
+<body>
+<h2>For Adding New Book and Deleting Book</h2>
+<p>Fill below form and click 'Add New Row' button to add new table row. Also, you can click the cross(X) sign button to remove the unwanted rows of a table.</p>
+<form>
+	<input type="text" class="txtBookAddDelete" placeholder="Enter Book">
+  	<input type="text" class="txtNameAddDelete" placeholder="Enter Book Name">
+      <input type="text" class="txtAuthorAddDelete" placeholder="Enter Author Name">
+      <input type="text" class="txtPriceAddDelete" placeholder="Enter Price">
+      <label for="Genre">Slect your genre:</label>
+   
+      <select name="Genre" id="genre">
+ <option value="Comic">Comic</option>
+ <option value="Motivational">Motivational</option>
+ <option value="Discovery">Discovery</option>
+ <option value="Other">Others</option>
+ <option value="Fantasy">Fantasy</option>
+ <option value="Horror">Horror</option>
+ <option value="Suspense">Suspense</option>
+ <option value="Murder Mistery">urder Mistery</option>
+ <option value="Sci-Fi">Sci-Fi</option>
+ 
+      </select>
+  	<button type="button" class="btnrowAddDelete">Add New Row</button>
+</form>
+<table class="TableAddDelete">
+	<thead>
+        <tr>                                  
+    		<th>Book</th>
+        	<th>Name</th>
+        	<th>Author</th> 
+            <th>Price</th>                                                                       
+        </tr>                                   
+    </thead>    
+  	<tbody>                                   
+    </tbody>
+</table>
+</body>
+</html> 
